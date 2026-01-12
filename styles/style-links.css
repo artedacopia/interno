@@ -1,0 +1,141 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    background: rgb(193, 228, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+div#container{
+    width: 250px;
+    height: 95vh;
+    display: grid;
+}
+
+nav{
+    padding-top: 20px;
+    background: rgba(255, 255, 255, 0.715);
+    width: 250px;
+    height: 40vh;
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 45px);
+    gap: 10px;
+    position: absolute;
+}
+
+nav a{
+    width: 85%;
+    height: 100%;
+    text-decoration: none;
+    background: rgb(7, 120, 201);
+    color: white;
+    font-weight: bolder;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    font-size: 2em;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(17, 38, 133, 0.6);
+}
+
+nav a:hover{
+    background: rgb(255, 255, 255);
+    color: rgb(7, 120, 201);
+}
+
+span#burguer{
+    color: white;
+}
+
+header{
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+div#navegacao{
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    background: rgb(24, 130, 218);
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    cursor: pointer;
+    height: 30px;
+}
+
+div#navegacao span{
+    justify-self: right;
+}
+
+div#navegacao div{
+    align-self: center;
+    justify-self: left;
+}
+
+article{
+    margin-bottom: 10px;
+}
+
+article h1{
+    background: rgb(24, 130, 218);
+    color: white;
+    padding-left: 5px;
+    height: 25px;
+    font-size: 0.95em;
+    align-content: center;
+}
+
+article a{
+    display: block;
+    background: rgba(255, 255, 255, 0.5);
+    color: black;
+    margin-left: 10px;
+    margin-bottom: 2px;
+    padding: 3px 0px;
+    padding-left: 5px;
+    font-size: 0.9em;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+article a:hover{
+    background: white;
+}
+
+div#recarregar{
+    display: flex;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0px 10px;
+    font-size: 0.6em;
+    font-weight: bolder;
+    border-radius: 8px;
+    max-width: 250px;
+    height: 70px;
+}
+
+div#recarregar a{
+    text-decoration: none;
+    background:rgb(24, 130, 218);
+    color:white;
+    padding: 8px 15px;
+    box-shadow: 1px 1px 3px rgba(4, 42, 47, 0.342);
+    border-radius: 8px;
+}
+
+div#recarregar a:hover{
+    background:rgb(17, 86, 142);
+}
