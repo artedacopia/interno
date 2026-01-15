@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download de Artes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            max-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        #download {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="download">
+        <input type="text" name="code" id="code" placeholder="Digite o código da arte">
+        <input type="submit" value="Baixar Arte" onclick="downloadArt()">
+    </div>
+</body>
+<script>
+    async function downloadArt() {
+        const code = document.getElementById('code').value.trim();
+
+        if (!code) {
+            alert('Por favor, insira um código de arte válido.');
+            return;
+        }
+
+        try {
+            // Carrega o JSON com os códigos
+            const response = await fetch('artes.json');
+            const data = await response.json();
+
+            // Verifica se o código existe
+            if (!data[code]) {
+                alert('Código não encontrado ou link não cadastrado.');
+                return;
+            }
+
+            // Força o download pelo link do Google Drive
+            const link = document.createElement('a');
+            link.href = data[code];
+            link.target = '_self';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+        } catch (error) {
+            console.error(error);
+            alert('Erro ao carregar a lista de artes.');
+        }
+    }
+</script>
+</html>
