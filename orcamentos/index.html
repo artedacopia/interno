@@ -1,126 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orçamentos</title>
-    <link rel="stylesheet" href="../styles/style-orcamentos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Orçamentos</title>
+  <link rel="stylesheet" href="./style-orcamentos.css">
 </head>
 <body>
 
-    <div id="container">
-        <div id="recarregar">
-            <a href="../">INÍCIO</a>
-            <a href="../links">LINKS</a>
-            <a href="../produtos">PRODUTOS</a>
-            <a href="../orcamentos">RECARREGAR</a>
-        </div>
-        
-        <div id="titulo">
-            <h1>Gerador de Orçamentos</h1>
-        </div>
+  <!-- NAVEGAÇÃO -->
+  <nav id="navbar">
+    <a href="../">INÍCIO</a>
+    <a href="../links">LINKS</a>
+    <a href="../produtos">PRODUTOS</a>
+    <a href="../orcamentos">RECARREGAR</a>
+  </nav>
 
-        <div id="dados">
-            <div id="materiais">
-                <label for="material_opt" class="dadotopo">Material: </label>
-                <select name="material_opt" id="material_opt" class="dadobaixo" style="text-align: left; padding-left: 10px">
-                    <optgroup label="Lona">
-                        <option value="lona380">Lona 380 GF</option>
-                        <option value="lona440">Lona 440 GF</option>
-                        <option value="lonafront">Lona FrontLight</option>
-                        <option value="lonafosca">Lona Fosca</option>
-                    </optgroup>
-                    <optgroup label="Vinil">
-                        <option value="avery" selected>Vinil Avery</option>
-                        <option value="blackout">Vinil Blackout</option>
-                        <option value="espelhado">Vinil Espelhado</option>
-                        <option value="fosco">Vinil Fosco</option>
-                        <option value="perfurado">Vinil Perfurado</option>
-                        <option value="transparente">Vinil Transparente</option>
-                    </optgroup>
-                    <option value="outdoor">Papel Outdoor</option>
-                    <option value="ps">PS</option>
-                </select>
-            </div>
-
-            <div id="minimo">Quantidade Mínima</div>
-
-            <div id="acabamento">
-                <div id="semacabamentos">
-                    Sem Opções de Acabamento
-                </div>
-                <div id="boxverniz">
-                    <label for="verniz">Com Verniz?</label>
-                    <input type="checkbox" name="verniz" id="verniz">
-                </div>
-                
-                <div id="boxrecorte">
-                    <label for="recorte">Com recorte?</label>
-                    <input type="checkbox" name="recorte" id="recorte">
-                </div>
-            </div>
-
-            <div id="info">
-                <div id="boxquantidade">
-                    <label for="quantidade" class="dadotopo">Quantidade</label>
-                    <input type="number" name="quantidade" id="quantidade" class="dadobaixo" placeholder="Quantidade" value="1">
-                </div>
-
-                <div id="boxaltura">
-                    <label for="altura" class="dadotopo">Altura(cm)</label>
-                    <input type="number" name="altura" id="altura" class="dadobaixo" placeholder="Altura" value="10">
-                </div>
-
-                <div id="boxlargura">
-                    <label for="largura" class="dadotopo">Largura(cm)</label>
-                    <input type="number" name="largura" id="largura" class="dadobaixo" placeholder="Largura" value="10">
-                </div>
-
-            </div>
-
-            <div id="resultado">
-                <textarea name="" id=""></textarea>
-            </div>
-        </div>
-
-        <div id="detalhes">
-            <div class="espaco">
-
-            </div>
-            <div id="m2unitario" class="detalhes">
-                <div class="detalheesquerda">M² Unitário</div>
-                <div id="detalheM2Uni" class="detalhedireita"></div>
-            </div>
-
-            <div id="m2total" class="detalhes">
-                <div class="detalheesquerda">M² Total</div>
-                <div id="detalheM2Total" class="detalhedireita"></div>
-            </div>
-
-            <div id="valorm2" class="detalhes">
-                <div class="detalheesquerda">Valor M²</div>
-                <div id="detalheValorM2" class="detalhedireita"></div>
-            </div>
-
-            <div id="valorunitario" class="detalhes">
-                <div class="detalheesquerda">Valor Unitário</div>
-                <div id="detalheValorUni" class="detalhedireita"></div>
-            </div>
-
-            <div id="valortotal" class="detalhes">
-                <div class="detalheesquerda">Valor Total</div>
-                <div id="detalheValorTotal" class="detalhedireita"></div>
-            </div>
-
-            <div id="">
-                <div class="detalheesquerda"></div>
-                <div class="detalhedireita"></div>
-            </div>
-        </div>
-
+  <!-- CABEÇALHO -->
+  <header id="header">
+    <div class="icon">🖨️</div>
+    <div>
+      <h1>Gerador de <span>Orçamentos</span></h1>
     </div>
+  </header>
+
+  <!-- APP -->
+  <main id="app">
+
+    <!-- MATERIAL -->
+    <div class="card" id="card-material">
+      <div class="card-label">Material</div>
+      <div class="select-wrapper">
+        <select name="material_opt" id="material_opt">
+          <optgroup label="── Lona ──">
+            <option value="lona380">Lona 380 GF</option>
+            <option value="lona440">Lona 440 GF</option>
+            <option value="lonafront">Lona FrontLight</option>
+            <option value="lonafosca">Lona Fosca</option>
+          </optgroup>
+          <optgroup label="── Vinil ──">
+            <option value="avery" selected>Vinil Avery</option>
+            <option value="blackout">Vinil Blackout</option>
+            <option value="espelhado">Vinil Espelhado</option>
+            <option value="fosco">Vinil Fosco</option>
+            <option value="perfurado">Vinil Perfurado</option>
+            <option value="transparente">Vinil Transparente</option>
+          </optgroup>
+          <option value="outdoor">Papel Outdoor</option>
+          <option value="ps">PS</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ACABAMENTOS -->
+    <div class="card" id="card-acabamento">
+      <div class="card-label">Acabamentos</div>
+      <div id="acabamento-grid">
+
+        <div id="semacabamentos-msg">Sem opções disponíveis</div>
+
+        <label class="toggle-btn" id="btn-verniz">
+          <input type="checkbox" id="verniz" name="verniz">
+          <span class="btn-icon">✨</span>
+          <span class="btn-label">VERNIZ</span>
+        </label>
+
+        <label class="toggle-btn" id="btn-recorte">
+          <input type="checkbox" id="recorte" name="recorte">
+          <span class="btn-icon">✂️</span>
+          <span class="btn-label">RECORTE</span>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- DIMENSÕES -->
+    <div class="card" id="card-dimensoes">
+      <div class="card-label">Medidas &amp; Quantidade</div>
+      <div id="dimensoes-grid">
+
+        <div class="input-group">
+          <label for="quantidade">Quantidade</label>
+          <input type="number" id="quantidade" name="quantidade" value="1" min="1" placeholder="1">
+        </div>
+
+        <div class="input-group">
+          <label for="altura">Altura (cm)</label>
+          <input type="number" id="altura" name="altura" value="10" min="0" placeholder="10">
+        </div>
+
+        <div class="input-group">
+          <label for="largura">Largura (cm)</label>
+          <input type="number" id="largura" name="largura" value="10" min="0" placeholder="10">
+        </div>
+
+      </div>
+
+      <button id="btn-minimo">
+        <span class="spinner"></span>
+        <span class="btn-text">⟳ Calcular quantidade mínima (R$20)</span>
+      </button>
+    </div>
+
+    <!-- RESULTADO -->
+    <div class="card" id="card-resultado">
+      <div class="card-label">Resultado</div>
+
+      <div id="resultado-inner">
+
+        <!-- STATS -->
+        <div id="stats-grid">
+          <div class="stat-item">
+            <span class="stat-label">M² Unitário</span>
+            <span class="stat-value" id="detalheM2Uni">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">M² Total</span>
+            <span class="stat-value" id="detalheM2Total">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Valor / M²</span>
+            <span class="stat-value" id="detalheValorM2">—</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Valor Unitário</span>
+            <span class="stat-value" id="detalheValorUni">—</span>
+          </div>
+          <div class="stat-item highlight">
+            <span class="stat-label">💰 Valor Total</span>
+            <span class="stat-value" id="detalheValorTotal">—</span>
+          </div>
+        </div>
+
+        <!-- TEXTO -->
+        <div id="resultado-texto-wrap">
+          <label for="resultado-textarea">📋 Texto para orçamento</label>
+          <textarea id="resultado-textarea" name="resultado" readonly></textarea>
+          <button id="btn-copiar">⎘ Copiar</button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <script src="./orcamentos.js"></script>
 </body>
-
-<script src="../scripts/orcamentos.js"></script>
-
 </html>

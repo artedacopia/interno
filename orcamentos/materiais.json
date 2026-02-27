@@ -1,0 +1,22 @@
+{
+  "materiais": {
+    "lona380":     { "tab1": 70.00,  "tab2": 60.00,  "tab3": 55.00,  "verniz": true,  "recorte": false, "complemento": "da Lona 380g" },
+    "lona440":     { "tab1": 75.00,  "tab2": 65.00,  "tab3": 60.00,  "verniz": true,  "recorte": false, "complemento": "da Lona 440g" },
+    "lonafront":   { "tab1": 120.00, "tab2": 110.00, "tab3": 100.00, "verniz": true,  "recorte": false, "complemento": "da Lona FrontLight" },
+    "lonafosca":   { "tab1": 120.00, "tab2": 110.00, "tab3": 100.00, "verniz": true,  "recorte": false, "complemento": "da Lona Fosca" },
+    "avery":       { "tab1": 90.00,  "tab2": 68.00,  "tab3": 65.00,  "verniz": true,  "recorte": true,  "complemento": "do Vinil Avery" },
+    "blackout":    { "tab1": 100.00, "tab2": 75.00,  "tab3": 70.00,  "verniz": true,  "recorte": true,  "complemento": "do Vinil Blackout" },
+    "espelhado":   { "tab1": 120.00, "tab2": 120.00, "tab3": 120.00, "verniz": false, "recorte": false, "complemento": "do Vinil Espelhado" },
+    "fosco":       { "tab1": 100.00, "tab2": 90.00,  "tab3": 85.00,  "verniz": true,  "recorte": true,  "complemento": "do Vinil Fosco" },
+    "perfurado":   { "tab1": 120.00, "tab2": 120.00, "tab3": 120.00, "verniz": false, "recorte": false, "complemento": "do Vinil Perfurado" },
+    "transparente":{ "tab1": 76.00,  "tab2": 76.00,  "tab3": 76.00,  "verniz": false, "recorte": true,  "complemento": "do Vinil Transparente" },
+    "outdoor":     { "tab1": 33.00,  "tab2": 33.00,  "tab3": 33.00,  "verniz": false, "recorte": false, "complemento": "do Papel Outdoor" },
+    "ps":          { "tab1": 200.00, "tab2": 200.00, "tab3": 200.00, "verniz": true,  "recorte": false, "complemento": "do PS" }
+  },
+  "acabamentos": {
+    "recorte1": 120.00,
+    "recorte2": 100.00,
+    "recorte3": 85.00,
+    "verniz":   15.00
+  }
+}
