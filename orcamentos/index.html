@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- NAVEGAÇÃO -->
   <nav id="navbar">
     <a href="../">INÍCIO</a>
     <a href="../links">LINKS</a>
@@ -16,22 +15,18 @@
     <a href="../orcamentos">RECARREGAR</a>
   </nav>
 
-  <!-- CABEÇALHO -->
   <header id="header">
     <div class="icon">🖨️</div>
-    <div>
-      <h1>Gerador de <span>Orçamentos</span></h1>
-    </div>
+    <h1>Gerador de <span>Orçamentos</span></h1>
   </header>
 
-  <!-- APP -->
   <main id="app">
 
     <!-- MATERIAL -->
     <div class="card" id="card-material">
       <div class="card-label">Material</div>
-      <div class="select-wrapper">
-        <select name="material_opt" id="material_opt">
+      <div class="select-wrap">
+        <select id="material_opt" name="material_opt">
           <optgroup label="── Lona ──">
             <option value="lona380">Lona 380 GF</option>
             <option value="lona440">Lona 440 GF</option>
@@ -56,86 +51,76 @@
     <div class="card" id="card-acabamento">
       <div class="card-label">Acabamentos</div>
       <div id="acabamento-grid">
-
-        <div id="semacabamentos-msg">Sem opções disponíveis</div>
+        <div id="semacabamentos-msg">Sem opções</div>
 
         <label class="toggle-btn" id="btn-verniz">
           <input type="checkbox" id="verniz" name="verniz">
-          <span class="btn-icon">✨</span>
-          <span class="btn-label">VERNIZ</span>
+          <span class="bi">✨</span>
+          <span class="bl">VERNIZ</span>
         </label>
 
         <label class="toggle-btn" id="btn-recorte">
           <input type="checkbox" id="recorte" name="recorte">
-          <span class="btn-icon">✂️</span>
-          <span class="btn-label">RECORTE</span>
+          <span class="bi">✂️</span>
+          <span class="bl">RECORTE</span>
         </label>
-
       </div>
     </div>
 
     <!-- DIMENSÕES -->
     <div class="card" id="card-dimensoes">
       <div class="card-label">Medidas &amp; Quantidade</div>
-      <div id="dimensoes-grid">
-
-        <div class="input-group">
-          <label for="quantidade">Quantidade</label>
-          <input type="number" id="quantidade" name="quantidade" value="1" min="1" placeholder="1">
+      <div id="dim-row">
+        <div class="ig">
+          <label for="quantidade">Qtd</label>
+          <input type="number" id="quantidade" name="quantidade" value="1" min="1">
         </div>
-
-        <div class="input-group">
+        <div class="ig">
           <label for="altura">Altura (cm)</label>
-          <input type="number" id="altura" name="altura" value="10" min="0" placeholder="10">
+          <input type="number" id="altura" name="altura" value="10" min="0">
         </div>
-
-        <div class="input-group">
+        <div class="ig">
           <label for="largura">Largura (cm)</label>
-          <input type="number" id="largura" name="largura" value="10" min="0" placeholder="10">
+          <input type="number" id="largura" name="largura" value="10" min="0">
         </div>
-
+        <button id="btn-minimo" title="Calcular quantidade mínima para R$20">
+          <span class="spinner"></span>
+          <span>⟳ Qtd. mínima</span>
+        </button>
       </div>
-
-      <button id="btn-minimo">
-        <span class="spinner"></span>
-        <span class="btn-text">⟳ Calcular quantidade mínima (R$20)</span>
-      </button>
     </div>
 
     <!-- RESULTADO -->
     <div class="card" id="card-resultado">
       <div class="card-label">Resultado</div>
-
       <div id="resultado-inner">
 
-        <!-- STATS -->
         <div id="stats-grid">
-          <div class="stat-item">
-            <span class="stat-label">M² Unitário</span>
-            <span class="stat-value" id="detalheM2Uni">—</span>
+          <div class="si">
+            <span class="sl">M² Unitário</span>
+            <span class="sv" id="detalheM2Uni">—</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-label">M² Total</span>
-            <span class="stat-value" id="detalheM2Total">—</span>
+          <div class="si">
+            <span class="sl">M² Total</span>
+            <span class="sv" id="detalheM2Total">—</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-label">Valor / M²</span>
-            <span class="stat-value" id="detalheValorM2">—</span>
+          <div class="si">
+            <span class="sl">Valor / M²</span>
+            <span class="sv" id="detalheValorM2">—</span>
           </div>
-          <div class="stat-item">
-            <span class="stat-label">Valor Unitário</span>
-            <span class="stat-value" id="detalheValorUni">—</span>
+          <div class="si">
+            <span class="sl">Valor Unit.</span>
+            <span class="sv" id="detalheValorUni">—</span>
           </div>
-          <div class="stat-item highlight">
-            <span class="stat-label">💰 Valor Total</span>
-            <span class="stat-value" id="detalheValorTotal">—</span>
+          <div class="si big">
+            <span class="sl">💰 Valor Total</span>
+            <span class="sv" id="detalheValorTotal">—</span>
           </div>
         </div>
 
-        <!-- TEXTO -->
-        <div id="resultado-texto-wrap">
-          <label for="resultado-textarea">📋 Texto para orçamento</label>
-          <textarea id="resultado-textarea" name="resultado" readonly></textarea>
+        <div id="txt-wrap">
+          <label for="resultado-textarea">📋 Texto do orçamento</label>
+          <textarea id="resultado-textarea" readonly></textarea>
           <button id="btn-copiar">⎘ Copiar</button>
         </div>
 
