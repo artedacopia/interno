@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo — Gráfica</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f5f3ef;
+      --surface:   #ffffff;
+      --border:    #e8e4de;
+      --accent:    #c0392b;
+      --accent-lt: #fdf0ee;
+      --text-main: #1a1714;
+      --text-sub:  #7a7068;
+      --text-muted:#a89e95;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.06);
+      --shadow-md: 0 6px 24px rgba(0,0,0,.10);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,.12);
+      --radius:    14px;
+      --transition: .22s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-icon svg { width: 20px; height: 20px; fill: #fff; }
+
+    .brand-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      line-height: 1;
+    }
+
+    .brand-name span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .68rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+
+    /* Search */
+    .search-wrap {
+      position: relative;
+      width: 280px;
+    }
+
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-muted);
+      pointer-events: none;
+    }
+
+    #searchInput {
+      width: 100%;
+      height: 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg);
+      padding: 0 16px 0 38px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .88rem;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    #searchInput::placeholder { color: var(--text-muted); }
+
+    #searchInput:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+    }
+
+    /* ── MAIN LAYOUT ── */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+    }
+
+    /* ── FILTER TABS ── */
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .filter-label {
+      font-size: .75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .tab {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 18px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .85rem;
+      font-weight: 500;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+
+    .tab:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(192,57,43,.30);
+    }
+
+    /* ── RESULTS INFO ── */
+    .results-info {
+      font-size: .82rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      min-height: 20px;
+    }
+
+    .results-info strong { color: var(--text-sub); }
+
+    /* ── GRID ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: cardIn .35s ease both;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-header {
+      padding: 20px 20px 14px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.08rem;
+      color: var(--text-main);
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .badge-cat {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      background: var(--accent-lt);
+      color: var(--accent);
+      border: 1px solid rgba(192,57,43,.18);
+      white-space: nowrap;
+    }
+
+    .badge-tipo {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-size: .68rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .badge-tipo.individual {
+      background: #eef6ee;
+      color: #2d7a2d;
+      border: 1px solid rgba(45,122,45,.15);
+    }
+
+    .badge-tipo.composto {
+      background: #eef3fb;
+      color: #2456a4;
+      border: 1px solid rgba(36,86,164,.15);
+    }
+
+    .badge-tipo svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
+    /* Price Table */
+    .price-table {
+      margin: 0 20px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 14px;
+      font-size: .85rem;
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+
+    .price-row:last-child { border-bottom: none; }
+
+    .price-row:hover { background: #faf8f6; }
+
+    .price-row-label {
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    .price-row-val {
+      font-weight: 600;
+      color: var(--text-main);
+      font-size: .92rem;
+      letter-spacing: -.01em;
+    }
+
+    /* Components (composite) */
+    .components-section {
+      margin: 14px 20px 0;
+    }
+
+    .components-title {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--text-muted);
+      margin-bottom: 7px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .components-title svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .components-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .comp-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      background: #f2f0fc;
+      border: 1px solid #d8d5f5;
+      border-radius: 20px;
+      font-size: .72rem;
+      color: #4a3fbf;
+      font-weight: 500;
+    }
+
+    .comp-chip::before {
+      content: '·';
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Info */
+    .card-info {
+      margin: 12px 20px 0;
+      padding: 9px 12px;
+      background: #faf8f5;
+      border-radius: 8px;
+      border-left: 3px solid var(--border);
+      font-size: .78rem;
+      color: var(--text-sub);
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .card-footer {
+      margin-top: auto;
+      padding: 16px 20px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      gap: 12px;
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      opacity: .35;
+    }
+
+    .empty-state p {
+      font-size: .95rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      header { padding: 0 16px; }
+      .brand-name span { display: none; }
+      .search-wrap { width: 200px; }
+      main { padding: 20px 12px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-brand">
+    <div class="brand-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/>
+      </svg>
+    </div>
+    <div class="brand-name">
+      Catálogo
+      <span>Gráfica Rápida</span>
+    </div>
+  </div>
+
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input id="searchInput" type="text" placeholder="Buscar produto…" autocomplete="off" />
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <!-- Filter Tabs -->
+  <div class="filter-bar" id="filterBar">
+    <span class="filter-label">Categoria:</span>
+    <!-- tabs injected by JS -->
+  </div>
+
+  <div class="results-info" id="resultsInfo"></div>
+
+  <div class="grid" id="grid">
+    <!-- cards injected by JS -->
+  </div>
+</main>
+
+<script>
+  const PRODUTOS_URL = 'produtos.json';
+
+  let allProducts = [];
+  let activeCategory = 'Todos';
+  let searchQuery = '';
+
+  async function loadProducts() {
+    try {
+      const res = await fetch(PRODUTOS_URL);
+      if (!res.ok) throw new Error('Arquivo não encontrado');
+      allProducts = await res.json();
+      init();
+    } catch (e) {
+      document.getElementById('grid').innerHTML = `
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          <p>Não foi possível carregar <strong>produtos.json</strong>.<br>Verifique se o arquivo está na mesma pasta.</p>
+        </div>`;
+    }
+  }
+
+  function init() {
+    buildTabs();
+    renderAll();
+    document.getElementById('searchInput').addEventListener('input', e => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderAll();
+    });
+  }
+
+  function getCategories() {
+    const cats = ['Todos', ...new Set(allProducts.map(p => p.categoria))];
+    return cats;
+  }
+
+  function buildTabs() {
+    const bar = document.getElementById('filterBar');
+    const label = bar.querySelector('.filter-label');
+    bar.innerHTML = '';
+    bar.appendChild(label);
+
+    getCategories().forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'tab' + (cat === activeCategory ? ' active' : '');
+      btn.textContent = cat;
+      btn.addEventListener('click', () => {
+        activeCategory = cat;
+        buildTabs();
+        renderAll();
+      });
+      bar.appendChild(btn);
+    });
+  }
+
+  function filtered() {
+    return allProducts.filter(p => {
+      const matchCat = activeCategory === 'Todos' || p.categoria === activeCategory;
+      const matchSearch = !searchQuery
+        || p.nome.toLowerCase().includes(searchQuery)
+        || p.categoria.toLowerCase().includes(searchQuery)
+        || (p.informacao_adicional && p.informacao_adicional.toLowerCase().includes(searchQuery))
+        || (p.componentes && p.componentes.some(c => c.toLowerCase().includes(searchQuery)));
+      return matchCat && matchSearch;
+    });
+  }
+
+  function formatBRL(val) {
+    return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  function renderAll() {
+    const list = filtered();
+    const info = document.getElementById('resultsInfo');
+
+    if (searchQuery) {
+      info.innerHTML = `Exibindo <strong>${list.length}</strong> resultado${list.length !== 1 ? 's' : ''} para "<strong>${escapeHtml(searchQuery)}</strong>"`;
+    } else if (activeCategory !== 'Todos') {
+      info.innerHTML = `<strong>${list.length}</strong> produto${list.length !== 1 ? 's' : ''} em <strong>${escapeHtml(activeCategory)}</strong>`;
+    } else {
+      info.innerHTML = `<strong>${list.length}</strong> produto${list.length !== 1 ? 's' : ''} no catálogo`;
+    }
+
+    const grid = document.getElementById('grid');
+
+    if (list.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <p>Nenhum produto encontrado.</p>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = list.map((p, i) => cardHTML(p, i)).join('');
+  }
+
+  function cardHTML(p, idx) {
+    const isComposto = p.tipo === 'composto';
+    const delay = Math.min(idx * 40, 300);
+
+    const badgeTipo = isComposto
+      ? `<span class="badge-tipo composto">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          Composto
+         </span>`
+      : `<span class="badge-tipo individual">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          Individual
+         </span>`;
+
+    const priceRows = p.precos.map(pr => `
+      <div class="price-row">
+        <span class="price-row-label">${escapeHtml(pr.label)}</span>
+        <span class="price-row-val">${formatBRL(pr.valor)}</span>
+      </div>`).join('');
+
+    const componentsSection = isComposto && p.componentes && p.componentes.length
+      ? `<div class="components-section">
+          <div class="components-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+            Composto por
+          </div>
+          <div class="components-list">
+            ${p.componentes.map(c => `<span class="comp-chip">${escapeHtml(c)}</span>`).join('')}
+          </div>
+        </div>`
+      : '';
+
+    const infoSection = p.informacao_adicional
+      ? `<div class="card-info">${escapeHtml(p.informacao_adicional)}</div>`
+      : '';
+
+    return `
+      <div class="card" style="animation-delay:${delay}ms">
+        <div class="card-header">
+          <h2 class="card-title">${escapeHtml(p.nome)}</h2>
+          <div class="badge-wrap">
+            <span class="badge-cat">${escapeHtml(p.categoria)}</span>
+            ${badgeTipo}
+          </div>
+        </div>
+        <div class="price-table">${priceRows}</div>
+        ${componentsSection}
+        ${infoSection}
+        <div class="card-footer"></div>
+      </div>`;
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  loadProducts();
+</script>
+</body>
+</html>

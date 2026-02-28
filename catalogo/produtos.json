@@ -1,0 +1,154 @@
+[
+  {
+    "id": 1,
+    "nome": "Papel Couché A4",
+    "categoria": "Laser",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 unidade", "valor": 4.00 },
+      { "rotulo": "10 unidades", "valor": 3.00 },
+      { "rotulo": "30 unidades", "valor": 2.50 }
+    ],
+    "informacao_adicional": "Papel de alta qualidade para impressão laser colorida ou P&B."
+  },
+  {
+    "id": 2,
+    "nome": "Impressão A4 Colorida",
+    "categoria": "Laser",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 unidade", "valor": 3.50 },
+      { "rotulo": "10 unidades", "valor": 2.80 },
+      { "rotulo": "50 unidades", "valor": 2.20 }
+    ],
+    "informacao_adicional": ""
+  },
+  {
+    "id": 3,
+    "nome": "Impressão A4 P&B",
+    "categoria": "Laser",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 unidade", "valor": 1.00 },
+      { "rotulo": "10 unidades", "valor": 0.80 },
+      { "rotulo": "50 unidades", "valor": 0.60 }
+    ],
+    "informacao_adicional": ""
+  },
+  {
+    "id": 4,
+    "nome": "Recorte",
+    "categoria": "Serviço",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 unidade", "valor": 0.50 }
+    ],
+    "informacao_adicional": "Preço por corte reto. Cortes especiais sob consulta."
+  },
+  {
+    "id": 5,
+    "nome": "Plastificação A4",
+    "categoria": "Serviço",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 unidade", "valor": 5.00 },
+      { "rotulo": "5 unidades", "valor": 4.00 }
+    ],
+    "informacao_adicional": "Plastificação fosca ou brilhante."
+  },
+  {
+    "id": 6,
+    "nome": "Encadernação",
+    "categoria": "Serviço",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "Espiral", "valor": 8.00 },
+      { "rotulo": "Capa dura", "valor": 15.00 }
+    ],
+    "informacao_adicional": "Inclui capa e contracapa transparente."
+  },
+  {
+    "id": 7,
+    "nome": "100 Cartões de Visita",
+    "categoria": "Cartões / Tags",
+    "tipo": "composto",
+    "precos": [
+      { "rotulo": "Só frente", "valor": 30.00 },
+      { "rotulo": "Frente e verso", "valor": 55.00 }
+    ],
+    "informacao_adicional": "Papel couché 300g, acabamento brilho ou fosco. Arte inclusa.",
+    "composicao": [
+      { "produto": "Papel Couché A4", "quantidade": 10 },
+      { "produto": "Impressão A4 Colorida", "quantidade": 10 },
+      { "produto": "Recorte", "quantidade": 100 }
+    ]
+  },
+  {
+    "id": 8,
+    "nome": "50 Flyers A5",
+    "categoria": "Cartões / Tags",
+    "tipo": "composto",
+    "precos": [
+      { "rotulo": "Só frente", "valor": 45.00 },
+      { "rotulo": "Frente e verso", "valor": 75.00 }
+    ],
+    "informacao_adicional": "Papel couché 150g, colorido. Prazo de 2 dias úteis.",
+    "composicao": [
+      { "produto": "Papel Couché A4", "quantidade": 25 },
+      { "produto": "Impressão A4 Colorida", "quantidade": 25 },
+      { "produto": "Recorte", "quantidade": 50 }
+    ]
+  },
+  {
+    "id": 9,
+    "nome": "Etiqueta Adesiva A4",
+    "categoria": "Cartões / Tags",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 folha", "valor": 6.00 },
+      { "rotulo": "10 folhas", "valor": 5.00 },
+      { "rotulo": "30 folhas", "valor": 4.20 }
+    ],
+    "informacao_adicional": ""
+  },
+  {
+    "id": 10,
+    "nome": "Banner 90×150cm",
+    "categoria": "Grande Formato",
+    "tipo": "composto",
+    "precos": [
+      { "rotulo": "Lona com ilhós", "valor": 85.00 },
+      { "rotulo": "Lona com suporte", "valor": 130.00 }
+    ],
+    "informacao_adicional": "Impressão em lona 440g. Arte enviada pelo cliente em alta resolução.",
+    "composicao": [
+      { "produto": "Impressão A4 Colorida", "quantidade": 1 }
+    ]
+  },
+  {
+    "id": 11,
+    "nome": "Adesivo Vinil A4",
+    "categoria": "Grande Formato",
+    "tipo": "individual",
+    "precos": [
+      { "rotulo": "1 folha", "valor": 12.00 },
+      { "rotulo": "5 folhas", "valor": 10.00 }
+    ],
+    "informacao_adicional": "Vinil fosco ou brilhante. Indicado para uso externo e interno."
+  },
+  {
+    "id": 12,
+    "nome": "Kit Identidade Visual",
+    "categoria": "Cartões / Tags",
+    "tipo": "composto",
+    "precos": [
+      { "rotulo": "Básico", "valor": 120.00 },
+      { "rotulo": "Completo", "valor": 200.00 }
+    ],
+    "informacao_adicional": "Básico: 100 cartões + 50 flyers. Completo: 200 cartões + 100 flyers + banner.",
+    "composicao": [
+      { "produto": "100 Cartões de Visita", "quantidade": 1 },
+      { "produto": "50 Flyers A5", "quantidade": 1 }
+    ]
+  }
+]
